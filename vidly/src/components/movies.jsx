@@ -36,6 +36,37 @@ class Movies extends Component {
          this.setState({ currentPage: page});
      }
 
+     selectGenre = (genreLetter) => {
+         if(genreLetter==='F'){
+            const movies = getMovies().filter(m => m.genre==='Fiction');
+            this.setState({
+                movies 
+            })
+         }
+
+         if(genreLetter==='D'){
+            const movies = getMovies().filter(m => m.genre==='Drama');
+            this.setState({
+                movies 
+            })
+         }
+
+         if(genreLetter==='T'){
+            const movies = getMovies().filter(m => m.genre==='Terror');
+            this.setState({
+                movies 
+            })
+         }
+
+         if(genreLetter==='All'){
+            const movies = getMovies();
+            this.setState({
+                movies 
+            })
+         }
+
+     }
+
     render() { 
         const {length: count} = this.state.movies;
         const { pageSize, currentPage, movies: allMovies } = this.state;
@@ -50,30 +81,47 @@ class Movies extends Component {
         return (
                 <React.Fragment>
                     <p>Showing {count===1 ? count +' Movie': count+' Movies'} from database!!</p>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Genre</th>
-                                <th>Stock</th>
-                                <th>Rate</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {movies.map(movie => (
-                                <tr key={movie.id}>
-                                    <td>{movie.title}</td>
-                                    <td>{movie.genre}</td>
-                                    <td>{movie.numberInStock}</td>
-                                    <td>{movie.rate}</td>
-                                    <td><Like liked={movie.liked} onClick={() =>this.handleClick(movie)}/></td>
-                                    <td><button onClick={() => this.handleDelete(movie)} className="btn btn-danger btn-sm">Delete</button></td>
-                                </tr>
-                            ))}
-                            
-                        </tbody>
-                    </table>  
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-3">
+                                <ul class="list-group">
+                                    <li class="list-group-item" onClick={() =>this.selectGenre('All')}>All</li>
+                                    <li class="list-group-item" onClick={() =>this.selectGenre('F')}>Fiction</li>
+                                    <li class="list-group-item" onClick={() =>this.selectGenre('D')}>Drama</li>
+                                    <li class="list-group-item" onClick={() =>this.selectGenre('T')}>Terror</li>
+                                </ul>
+                            </div>
+                        
+                    
+                            <div className="col">
+                                <table className="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Genre</th>
+                                            <th>Stock</th>
+                                            <th>Rate</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {movies.map(movie => (
+                                            <tr key={movie.id}>
+                                                <td>{movie.title}</td>
+                                                <td>{movie.genre}</td>
+                                                <td>{movie.numberInStock}</td>
+                                                <td>{movie.rate}</td>
+                                                <td><Like liked={movie.liked} onClick={() =>this.handleClick(movie)}/></td>
+                                                <td><button onClick={() => this.handleDelete(movie)} className="btn btn-danger btn-sm">Delete</button></td>
+                                            </tr>
+                                        ))}
+                                        
+                                    </tbody>
+                                </table>  
+                            </div>
+
+                        </div>
+                    </div>
 
                     <Pagination 
                         itemsCount={count} 
@@ -81,7 +129,7 @@ class Movies extends Component {
                         currentPage={currentPage}
                         onPageChange={this.handlePageChange}
                     />
-                    
+
                 </React.Fragment>
             
             
