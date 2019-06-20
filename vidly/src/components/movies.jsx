@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import { getMovies } from '../services/movieService';
+import { getGenres } from '../services/movieService';
 import Like from './common/like';
 import Pagination from './common/pagination';
+import ListGroup from './common/listGroup';
 import { paginate } from '../utils/paginate';
 
 class Movies extends Component {
     state = { 
-        movies: getMovies(),
+        movies: [],
+        genres: [],
         currentPage: 1,
         pageSize: 4
      }
+
+     componentDidMount(){
+        this.setState({ movies: getMovies(), genres: getGenres() })
+     }
+
+     handleGenreSelect = genre => {
+        this.setState({ selectedGenre: genre})
+     };
 
 
      handleDelete = (movie) => {
@@ -79,17 +90,16 @@ class Movies extends Component {
     
 
         return (
-                <React.Fragment>
+                <div>
                     <p>Showing {count===1 ? count +' Movie': count+' Movies'} from database!!</p>
                     <div className="container">
                         <div className="row">
                             <div className="col-3">
-                                <ul class="list-group">
-                                    <li class="list-group-item" onClick={() =>this.selectGenre('All')}>All</li>
-                                    <li class="list-group-item" onClick={() =>this.selectGenre('F')}>Fiction</li>
-                                    <li class="list-group-item" onClick={() =>this.selectGenre('D')}>Drama</li>
-                                    <li class="list-group-item" onClick={() =>this.selectGenre('T')}>Terror</li>
-                                </ul>
+                               <ListGroup 
+                                    items={this.state.genres} 
+                                    selectedItem={this.state.selectedGenre}
+                                    onItemSelect={this.handleGenreSelect}
+                                />
                             </div>
                         
                     
@@ -130,7 +140,7 @@ class Movies extends Component {
                         onPageChange={this.handlePageChange}
                     />
 
-                </React.Fragment>
+                </div>
             
             
             );

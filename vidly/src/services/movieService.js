@@ -77,6 +77,22 @@ export const movies= [
 ];
 
 
+export const genres = [
+    {
+        _id: 1,
+        name: 'Fiction'
+    },
+    {
+        _id: 2,
+        name: 'Drama'
+    },
+    {
+        _id: 3,
+        name: 'Terror'
+    }
+];
+
+
 export const getMovies = () => {
     return movies;
 } 
@@ -84,3 +100,7 @@ export const getMovies = () => {
 export const getMovie = id => {
     return movies.find(m=>m.id===id);
 }
+
+export const getGenres = () => {
+    return genres;
+} 
