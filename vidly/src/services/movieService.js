@@ -7,7 +7,7 @@ export const movies= [
                 _id: 1,
                 name: 'Fiction'
             },
-            rate: 8.6,
+            dailyRentalRate: 8.6,
             liked: true
         }, 
         {
@@ -18,7 +18,7 @@ export const movies= [
                 _id: 2,
                 name: 'Drama'
             }, 
-            rate: 9.5
+            dailyRentalRate: 9.5
         },
         {
             id: 3, 
@@ -28,7 +28,7 @@ export const movies= [
                 _id: 3,
                 name: 'Terror'
             },
-            rate: 7.5
+            dailyRentalRate: 7.5
         },
         {
             id: 4, 
@@ -38,7 +38,7 @@ export const movies= [
                 _id: 2,
                 name: 'Drama'
             },
-            rate: 8
+            dailyRentalRate: 8
         },
         {
             id: 5, 
@@ -48,7 +48,7 @@ export const movies= [
                 _id: 2,
                 name: 'Drama'
             },
-            rate: 7.5
+            dailyRentalRate: 7.5
         },
         {
             id: 6, 
@@ -58,7 +58,7 @@ export const movies= [
                 _id: 1,
                 name: 'Fiction'
             },
-            rate: 9.8
+            dailyRentalRate: 9.8
         },
         {
             id: 7, 
@@ -68,7 +68,7 @@ export const movies= [
                 _id: 1,
                 name: 'Fiction'
             },
-            rate: 9.3
+            dailyRentalRate: 9.3
         },
         {
             id: 8, 
@@ -78,7 +78,7 @@ export const movies= [
                 _id: 1,
                 name: 'Fiction'
             },
-            rate: 9.5
+            dailyRentalRate: 9.5
         },
         {
             id: 9, 
@@ -88,7 +88,7 @@ export const movies= [
                 _id: 1,
                 name: 'Fiction'
             },
-            rate: 7.5
+            dailyRentalRate: 7.5
         },
         {
             id: 10, 
@@ -98,7 +98,7 @@ export const movies= [
                 _id: 1,
                 name: 'Fiction'
             },
-            rate: 7.5
+            dailyRentalRate: 7.5
         }
 ];
 
