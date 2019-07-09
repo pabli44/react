@@ -1,17 +1,22 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import Products from './components/products';
+import Posts from './components/posts';
+import DashBoard from './components/dashBoard';
+import Home from './components/home';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <div className="content">
-        <Route path="/products" component={Products}/>
-        <Route path="/posts" component={Posts}/>
-        <Route path="/admin" component={DashBoard}/>
-        <Route path="" component={Home}/>
+        <Switch>
+          <Route path="/products" component={Products}/>
+          <Route path="/posts" component={Posts}/>
+          <Route path="/admin" component={DashBoard}/>
+          <Route path="/" component={Home}/>
+        </Switch>
       </div> 
     </div>
   );
