@@ -6,10 +6,12 @@ import Products from './components/products';
 import Posts from './components/posts';
 import DashBoard from './components/dashBoard';
 import Home from './components/home';
+import NavBar from './components/common/navBar';
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <NavBar />
       <div className="content">
         <Switch>
           <Route path="/products" component={Products}/>
