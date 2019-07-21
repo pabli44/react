@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 
 class Products extends Component {
-    state = {  }
+    
     render() { 
+        const {sortBy} = this.props;
+        console.log(sortBy);
+        
         return (  
             <p>Products</p>
 
