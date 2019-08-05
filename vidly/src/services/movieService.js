@@ -7,7 +7,7 @@ export const movies= [
                 _id: 1,
                 name: 'Fiction'
             },
-            dailyRentalRate: 8.6,
+            dailyRentalRate: 8.8,
             liked: true
         }, 
         {
